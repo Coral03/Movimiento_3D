@@ -5,7 +5,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_57qmd"]
-size = Vector3(0.64660645, 0.14710644, 0.4267578)
+size = Vector3(0.68629456, 0.1834165, 0.4267578)
 
 [node name="Node3D" type="Node3D" unique_id=2065222863]
 
@@ -19,8 +19,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87175155, 0)
 mesh = SubResource("CapsuleMesh_g4v7s")
 
 [node name="Eyes" type="MeshInstance3D" parent="Player/Mesh Capsule" unique_id=819597158]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031550825, 0.5802171, 0.40418005)
+transform = Transform3D(0.9986648, 0.041410442, 0.03088417, -0.042996854, 0.99768937, 0.05260555, -0.028634392, -0.053863235, 0.9981377, -0.027750134, 0.42780137, -0.4522428)
 mesh = SubResource("BoxMesh_57qmd")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=728738609]
-transform = Transform3D(-0.0043455358, -0.99986506, 0.01584029, -0.95690054, -0.00044202854, -0.29041576, 0.29038358, -0.016419604, -0.95676965, -0.14612073, 1.2023686, -2.1555953)
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=728738609]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 2.8717515, 5)

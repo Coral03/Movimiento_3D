@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bwjjygkrw7pcf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_57qmd"]
+size = Vector3(0.64660645, 0.14710644, 0.4267578)
+
+[node name="Node3D" type="Node3D" unique_id=2065222863]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1576834098]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1311996091]
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="Mesh Capsule" type="MeshInstance3D" parent="Player" unique_id=1113852313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87175155, 0)
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[node name="Eyes" type="MeshInstance3D" parent="Player/Mesh Capsule" unique_id=819597158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031550825, 0.5802171, 0.40418005)
+mesh = SubResource("BoxMesh_57qmd")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=728738609]
+transform = Transform3D(-0.0043455358, -0.99986506, 0.01584029, -0.95690054, -0.00044202854, -0.29041576, 0.29038358, -0.016419604, -0.95676965, -0.14612073, 1.2023686, -2.1555953)

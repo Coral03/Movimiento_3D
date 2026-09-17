@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Movimiento_3D"
-run/main_scene="uid://bwjjygkrw7pcf"
+run/main_scene="uid://d3t4juhfo3mvu"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,26 +1,27 @@
 [gd_scene format=3 uid="uid://bwjjygkrw7pcf"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+[ext_resource type="Script" uid="uid://bxwoc1e0ux6pc" path="res://escenas/player.gd" id="1_esbpa"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_26pgj"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_57qmd"]
-size = Vector3(0.68629456, 0.1834165, 0.4267578)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0kxa1"]
 
-[node name="Node3D" type="Node3D" unique_id=2065222863]
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(0.7640381, 0.5305176, 0.2927246)
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1576834098]
+[node name="player" type="CharacterBody3D" unique_id=1225792955]
+transform = Transform3D(0.99999547, 0, 0.0030159233, 0, 1, 0, -0.0030159233, 0, 0.99999547, 0, 0, 0)
+script = ExtResource("1_esbpa")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1311996091]
-shape = SubResource("CapsuleShape3D_g4v7s")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=424776450]
+shape = SubResource("CapsuleShape3D_26pgj")
 
-[node name="Mesh Capsule" type="MeshInstance3D" parent="Player" unique_id=1113852313]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87175155, 0)
-mesh = SubResource("CapsuleMesh_g4v7s")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1092124130]
+mesh = SubResource("CapsuleMesh_0kxa1")
 
-[node name="Eyes" type="MeshInstance3D" parent="Player/Mesh Capsule" unique_id=819597158]
-transform = Transform3D(0.9986648, 0.041410442, 0.03088417, -0.042996854, 0.99768937, 0.05260555, -0.028634392, -0.053863235, 0.9981377, -0.027750134, 0.42780137, -0.4522428)
-mesh = SubResource("BoxMesh_57qmd")
+[node name="Eyes" type="MeshInstance3D" parent="CollisionShape3D/MeshInstance3D" unique_id=1149916812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00062595075, 0.38078612, -0.57850933)
+mesh = SubResource("BoxMesh_g4v7s")
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=728738609]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 2.8717515, 5)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1693747312]
+transform = Transform3D(1, 0, 2.3283064e-10, 0, 0.9659258, 0.25881928, 0, -0.25881934, 0.96592575, -0.30245808, 2.5584502, 3.6815934)

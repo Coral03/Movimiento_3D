@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d3t4juhfo3mvu"]
 
+[ext_resource type="PackedScene" uid="uid://bwjjygkrw7pcf" path="res://escenas/player.tscn" id="1_d7u15"]
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 
 [sub_resource type="Sky" id="Sky_7dm0k"]
@@ -16,3 +18,11 @@ transform = Transform3D(1, 0, 0, 0, 0.9987744, 0.049494263, 0, -0.049494263, 0.9
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=869619896]
 environment = SubResource("Environment_g4v7s")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=838209017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+
+[node name="player" parent="." unique_id=2065222863 instance=ExtResource("1_d7u15")]
+transform = Transform3D(-0.9988303, 0, 0.048352584, 0, 1, 0, -0.048352584, 0, -0.9988303, -0.075616, 0.50984275, -0.1030519)

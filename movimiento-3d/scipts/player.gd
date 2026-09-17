@@ -37,12 +37,12 @@ func _ready() -> void:
 	# hide mouse
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-#  func q detecta eventos de entrada (el mov del mouse)
+# func q detecta eventos de entrada (el mov del mouse)
 func _input(event: InputEvent) -> void:
 	# verifica si el player movio el mopuse
 	if event is InputEventMouseMotion:
-		# gira el pj completo de izquierda a derecha (eje Y)
-		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+		# en lugar de girar todo el personaje, giramos el eje horizontal de la camara
+		camera.rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 
 		# mueve la cámara de arriba a abajo (eje X)
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
@@ -50,7 +50,6 @@ func _input(event: InputEvent) -> void:
 		# limita la rotación vertical de la camara para que no gire en 360°
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 		camera.rotation.z = 0.0
-
 
 func _physics_process(delta: float) -> void:
 	
@@ -72,16 +71,22 @@ func _physics_process(delta: float) -> void:
 
 # movimiento de player wasd
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	print("Input vector: ", input_dir)
+	
 	# convierte la dirección 2D del teclado a una dirección en el espacio 3D
 	# tomando en cuenta hacia dónde está mirando el player (transform.basis)
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-
-	# aceleración y movimiento
+	direction.y = 0 # Mantiene el movimiento estrictamente en el plano horizontal
+	direction = direction.normalized()
+	
+# aceleración y movimiento
 	if direction != Vector3.ZERO:
 		# si apreta w a s o d, aceleramos hacia esa dirección
 		velocity.x = move_toward(velocity.x, direction.x * SPEED, ACCEL * delta)
 		velocity.z = move_toward(velocity.z, direction.z * SPEED, ACCEL * delta)
+
+		# Gira la mesh de los a la dirección donde camino
+		var target_angle := atan2(-direction.x, -direction.z)
+		$MeshInstance3D.rotation.y = lerp_angle($MeshInstance3D.rotation.y, target_angle - rotation.y, 12.0 * delta)
 	else:
 		# si no hay teclas presionadas, frena de a poco hasta llegar a 0
 		velocity.x = move_toward(velocity.x, 0, DECEL * delta)

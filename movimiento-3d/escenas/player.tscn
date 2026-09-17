@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0kxa1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
-size = Vector3(0.7640381, 0.5305176, 0.2927246)
+size = Vector3(1.0555646, 0.2539673, 0.55075073)
 
 [node name="player" type="CharacterBody3D" unique_id=1225792955]
 transform = Transform3D(0.99999547, 0, 0.0030159233, 0, 1, 0, -0.0030159233, 0, 0.99999547, 0, 0, 0)
@@ -20,7 +20,7 @@ shape = SubResource("CapsuleShape3D_26pgj")
 mesh = SubResource("CapsuleMesh_0kxa1")
 
 [node name="Eyes" type="MeshInstance3D" parent="CollisionShape3D/MeshInstance3D" unique_id=1149916812]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00062595075, 0.38078612, -0.57850933)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014447652, 0.5223195, -0.5260983)
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1693747312]

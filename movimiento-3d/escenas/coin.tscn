@@ -1,26 +1,23 @@
 [gd_scene format=3 uid="uid://c84p1n62h6li5"]
 
-[ext_resource type="Script" uid="uid://dwyxgaclqu2h7" path="res://scipts/coin.gd" id="1_d5gmh"]
+[ext_resource type="Script" uid="uid://wj3noc26vv7l" path="res://escenas/coin.gd" id="1_ge5na"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_yf5fn"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_57qmd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5gmh"]
-albedo_color = Color(0.834463, 0.7746195, 0.1330086, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0kxa1"]
+albedo_color = Color(0.9356181, 0.9954147, 0.28201002, 1)
 
-[sub_resource type="SphereMesh" id="SphereMesh_6qpsl"]
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
 
-[node name="Node3D" type="Node3D" unique_id=709368384]
+[node name="coin" type="Area3D" unique_id=572460470]
+script = ExtResource("1_ge5na")
 
-[node name="Coin" type="Area3D" parent="." unique_id=329442189]
-script = ExtResource("1_d5gmh")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1751196332]
+shape = SubResource("SphereShape3D_57qmd")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Coin" unique_id=196816699]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05743742)
-shape = SubResource("SphereShape3D_yf5fn")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1342378456]
+transform = Transform3D(1.254926, 0, 0, 0, 1.0804379, 0, 0, 0, 0.23634009, 0, 0.17648005, 0)
+material_override = SubResource("StandardMaterial3D_0kxa1")
+mesh = SubResource("SphereMesh_g4v7s")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Coin" unique_id=1976888029]
-transform = Transform3D(0.030791316, 0.14209718, -0.0005670016, 0.8970108, -0.004877707, -0.016517852, 0.015333416, -2.452272e-11, 0.9674393, 0.00843823, 0.008287549, 0.06497097)
-material_override = SubResource("StandardMaterial3D_d5gmh")
-mesh = SubResource("SphereMesh_6qpsl")
-
-[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
